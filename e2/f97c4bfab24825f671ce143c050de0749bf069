@@ -1,0 +1,33 @@
+_bmad-output/epic/epic-ft-1-pomodoro-tracker.json
+  s_ac8e49c01696b1::t_40f74a6fccb904 31,33-34,36-37,39-40,42-43,45-46,48-49,51-52,54-55,57-58,66-67,69
+  s_ac8e49c01696b1::t_aacc87ca6043bb 60-64
+  s_ac8e49c01696b1::t_9a69014a8a3d95 32
+  s_ac8e49c01696b1::t_a881e0344e8d49 35
+  s_ac8e49c01696b1::t_a00e83fecaec1c 38
+  s_ac8e49c01696b1::t_de27c2b3467d86 41
+  s_ac8e49c01696b1::t_370bec592c3f8b 44
+  s_ac8e49c01696b1::t_ebc545e16c27b4 47
+  s_ac8e49c01696b1::t_a4ca2901c3179f 50
+  s_ac8e49c01696b1::t_6e6a316298daff 53
+  s_ac8e49c01696b1::t_ed421ea1f6e0ca 56
+  s_ac8e49c01696b1::t_3f61bf29bc9804 59
+  s_ac8e49c01696b1::t_f654c3e8f47551 65
+  s_ac8e49c01696b1::t_8fc5b8fb5d8abf 68
+  s_ac8e49c01696b1::t_d355405d92abe1 13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "e2f97c4bfab24825f671ce143c050de0749bf069",
+  "prompts": {},
+  "sessions": {
+    "s_ac8e49c01696b1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6fcdf4ec-c327-4945-91ee-4fd2f002dc27",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Denis <denis.kolkovskiy@cyber-sun.com>"
+    }
+  }
+}
