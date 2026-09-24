@@ -1,0 +1,66 @@
+# Vention customizations for the bmad-quick-dev workflow.
+#
+# At completion, determine the shipped scope size against the shared rubric.
+# Branch on whether a spec file is found under `_bmad-output`:
+#   - With spec: cache `storySizes[<spec-file-stem>]` for the Stop hook to read.
+#   - Without spec: invoke `vention-sync-story-metrics` with both `--story-name` and `--size`;
+#     the Stop hook is not the emitter on this path, so the size flows through
+#     the sync skill directly into the payload.
+
+# On activation when routed from `vention-start-flow`, emit the `implementation` stage-start
+# signal via the shared start-stage helper — the routed skill is activated internally
+# (no typed slash command for the hooks to detect). Standalone runs skip it; the call
+# self-gates on an active flow and is idempotent, with artifact-delta detection as backstop.
+
+[workflow]
+activation_steps_prepend = [
+    "Run only when this workflow was routed from `vention-start-flow` (an active flow state exists); for a direct, standalone invocation of this skill, skip this step. Emit the `implementation` stage-start signal before any other activation work by running from the project root: `vsdlc metrics stage-start --stage implementation`. If the operation exits 0 and produces a `<metrics_sync>` block, execute the MCP call it contains and obey the failure contract inside that block: a failed submission is a blocker — halt, tell the user in the same turn which event failed and why, and re-submit the payload once access is restored. If it exits 0 with no output (no-op: no active flow, stage already started, or stage not valid for the current flow), continue silently. If the operation exits non-zero, report the error to the user explicitly and continue the workflow — a broken metrics installation must not wedge the flow.",
+    "Read optional architecture context per the architecture-spine-authority fact before Quick Dev work; cite its decision IDs when the change implements them. Missing architecture remains optional and must not block Quick Dev.",
+]
+
+persistent_facts = [
+    "file:{project-root}/_bmad/custom/_shared/architecture-spine-authority.md",
+]
+
+activation_steps_append = [
+    "Check for a UX spec file before the workflow begins. Scan `{planning_artifacts}` for any file whose name matches `*ux-spec*`. **Not found**: Continue silently — no UX spec is required. **Found**: Read the file fully. Treat its contents as authoritative UX context for this entire workflow run — use the information it contains when writing or reviewing the dev spec.",
+]
+
+on_complete = '''
+Determine the completed scope size and route it through the correct path.
+
+1. Read `_bmad/custom/_shared/story-size-rubric.md` and apply it to the just-completed change (what was actually shipped, not what was planned). Pick exactly one of: `small`, `medium`, `large`.
+
+2. Decide whether a spec file is present under `_bmad-output`. Run from the project root (a portable Node one-liner, not a PowerShell one — it still needs a shell to invoke `node`; matching `findFirstSpecFile` in `src/lib/metrics/ops/hook-stop.ts`, including its silently-skip-unreadable-directories behavior):
+
+   ```bash
+   node -e "const fs=require('node:fs'),path=require('node:path');const walk=d=>{let r=[];let es;try{es=fs.readdirSync(d,{withFileTypes:true});}catch{return r;}for(const e of es){const p=path.join(d,e.name);if(e.isDirectory())r.push(...walk(p));else if(/^spec-.*\.md$/i.test(e.name))r.push(p);}return r;};if(fs.existsSync('_bmad-output')){const m=walk('_bmad-output');if(m.length)console.log(path.basename(m[0]));}"
+   ```
+
+   Trim the stdout value and apply this two-step check:
+
+   - If the trimmed value is empty → no spec file was found; route to branch 3b.
+   - Otherwise the trimmed value MUST match the regex `^spec-.+\.md$` (basename only). If it does not match, surface the raw detection output verbatim to the user and STOP — do not call the `story-size` operation and do not fall through to either branch. Sizing is best-effort; we will not pollute `storySizes` with a malformed key.
+
+   When multiple historical `spec-*.md` files exist in `_bmad-output`, taking the first match intentionally mirrors the Stop hook's own selection rule (`findFirstSpecFile`'s recursive first-match walk), so the cached key matches the key the hook looks up at emission. The cache key is the matched filename with the trailing `.md` removed.
+
+3a. **Spec exists (trimmed value matched the regex)** — cache the size and stop. Do NOT invoke `vention-sync-story-metrics`; the Stop hook owns spec-based emission.
+
+   ```bash
+   vsdlc metrics story-size \
+     --story-name "<spec-file-stem>" \
+     --size "<small|medium|large>"
+   ```
+
+3b. **No spec file (trimmed stdout empty)** — invoke the manual sync skill. Extract a concise story name from the task context (a few words, in English) and pass both `--story-name` and `--size`. The sync skill builds and dispatches the `story_completed` payload directly, so no separate `story-size` write is required for this path.
+
+   Invoke the `vention-sync-story-metrics` skill and follow its steps, invoking:
+
+   ```bash
+   vsdlc metrics story-sync \
+     --story-name "<extracted-story-name>" \
+     --size "<small|medium|large>"
+   ```
+
+4. Produce no user-facing size output beyond what `vention-sync-story-metrics` itself reports on success/failure. If the `story-size` operation (path 3a) returns a non-zero exit code, surface the error verbatim but otherwise continue — sizing is best-effort.
+'''

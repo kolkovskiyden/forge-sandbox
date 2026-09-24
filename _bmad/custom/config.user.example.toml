@@ -1,0 +1,9 @@
+# Personal central configuration for _bmad/custom/config.user.toml.
+# If config.user.toml is absent, copy this file to create your active personal configuration.
+# Keep config.user.toml uncommitted (gitignored); it applies only to your local install.
+# It uses the same per-key deep merge; personal values win over base central config
+# and the team's _bmad/custom/config.toml when the same key is set.
+# It does not customize a skill's [agent] or [workflow] behavior.
+#
+# [core]
+# communication_language = "Polish"

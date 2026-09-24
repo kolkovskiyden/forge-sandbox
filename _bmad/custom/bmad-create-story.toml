@@ -1,0 +1,11 @@
+# Vention customizations for the bmad-create-story workflow
+
+[workflow]
+
+persistent_facts = [
+  """Architecture decision traceability:
+- The story's decision pool is its parent BMAD epic's `**ADs covered:**` line. Carry only the local `AD-n` and inherited `initiative-ADRn` / `epic-ADRn` IDs this story implements into Dev Notes, tied to concrete tasks or acceptance criteria.
+- Decisions implemented by sibling stories are omitted, not restated.
+- Before finalizing, verify and report the IDs this story implements. Do not invent a separate AR namespace.
+""",
+]

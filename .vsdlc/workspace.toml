@@ -1,0 +1,31 @@
+# vsdlc reformats this file on every install; user comments are NOT
+# preserved inside the framework-managed tables ([framework], [workspace],
+# [forge], [codegraph], [git], [adapters]). Add custom annotations OUTSIDE these
+# tables (e.g. at the end of the file under a custom top-level table) to retain them.
+
+[framework]
+package = "@vention/sdlc"
+version = "0.3.1"
+
+[forge]
+workspace_id = "ai-belarus-dk"
+
+[codegraph]
+enabled = "on"
+
+[git]
+base_branches = "repository-default"
+
+[workspace]
+name = "forge-sandbox"
+type = "single-repo"
+
+[adapters.issue-tracker]
+base_url = "https://cyber-sun.atlassian.net"
+project_key = "FT"
+type = "jira"
+
+  [adapters.issue-tracker.type_map]
+  bug = [ "Bug" ]
+  epic = [ "Epic" ]
+  userstory = [ "Story" ]

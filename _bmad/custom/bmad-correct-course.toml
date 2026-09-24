@@ -1,0 +1,54 @@
+# Vention customizations for the bmad-correct-course workflow.
+#
+# A `bmad-correct-course` session on a decomposition's branch is a REFINEMENT of the existing
+# Decomposition Flow: its business time is attributed back to that flow via a correlated
+# refinement_started / refinement_completed pair (the decomposition-refinement continuation).
+#
+# Emit -> agent-runs-MCP -> mark-on-success protocol (mirrors the review-rework triad):
+#   1. The `refinement-emit` operation prints a <metrics_sync> block; it does NOT call
+#      MCP and writes NO emission marker (the started point does persist the minted
+#      refinement entry before the MCP call, so a crash-retry reuses the same id and Forge
+#      dedup collapses the duplicate).
+#   2. The AGENT executes the printed track_metric_event MCP call(s).
+#   3. On success, the `refinement-mark` operation stamps the emission marker.
+# The two failure modes are NOT the same: a missing or non-zero-exiting operation is reported to the
+# user but never blocks the workflow, whereas a failed track_metric_event MCP call is a blocker —
+# the agent halts and re-submits, per the failure contract inside the emitted <metrics_sync> block.
+#
+# started fires at activation (before any artifact edit); completed fires at on_complete,
+# classifying the session's own edited files into an equal-split AffectedStages map and
+# attaching the flow-type-selected count block (DecompositionOutput for decomposition flows,
+# TestingArtifacts for delivery flows).
+
+[workflow]
+
+persistent_facts = [
+  "file:{project-root}/_bmad/custom/_shared/architecture-spine-authority.md",
+  """Architecture discovery follows the architecture-spine-authority fact. A non-authoritative spine must not be used to approve a contradictory course change; cite the spine's decision IDs directly in the change proposal.""",
+]
+
+activation_steps_prepend = [
+    "Emit the decomposition-refinement `started` signal before any other activation work by running from the project root: `vsdlc metrics refinement-emit --event-type started`. If the operation exits 0 and produces a `<metrics_sync>` block, note the `RefinementInstanceId` value it contains — you will need it for the `--refinement-instance-id` argument on both the `completed` emission and this marker call, later in this session — then execute the `track_metric_event` MCP call it contains. Only if that MCP call succeeds, run `vsdlc metrics refinement-mark --marker startedEmittedAt --refinement-instance-id \"<the-refinement-id-you-noted>\"`; if the MCP call fails, do NOT write the marker — leaving `startedEmittedAt` unset is what lets a later run retry the emission instead of skipping it as already sent — and obey the failure contract inside the block: the failed submission is a blocker, so halt, tell the user in the same turn which event failed and why, and re-submit the payload once access is restored. If it exits 0 with no output (no-op: no active flow, or the started signal was already emitted), continue silently. If the operation exits non-zero, report the error to the user explicitly and continue the workflow — a broken metrics installation must not wedge the flow.",
+]
+
+on_complete = '''
+Emit the decomposition-refinement `completed` signal so the refinement's business time is attributed to the existing Decomposition Flow. A missing or non-zero-exiting operation is reported to the user but never blocks completion; a failed MCP submission is a blocker, per the failure contract inside the emitted block.
+
+1. Enumerate the files you edited via your OWN Edit/Write operations during this correct-course session (NOT a git diff — the stage classifier needs the session's edits only). Collect their paths.
+
+2. Run from the project root, passing ALL edited paths — however many there are — as ONE comma-separated `--edited-files` argument, plus `--refinement-instance-id "<id>"` with the `RefinementInstanceId` you noted from this session's `started` step (if you have it):
+
+   ```bash
+   vsdlc metrics refinement-emit --event-type completed --edited-files "<path1>,<path2>,...,<pathN>" --refinement-instance-id "<refinement-id-from-started>"
+   ```
+
+   Do NOT repeat `--edited-files` once per file — pass every path as one comma-separated value. Exactly one edited file is still one argument (`--edited-files "<path>"`), and no edited files means omitting the flag entirely — the placeholders above illustrate the shape, not a required count.
+
+   (If you edited no files, omit `--edited-files` — the completed event still fires with an empty stage allocation. If you don't have a `RefinementInstanceId` from this session, omit `--refinement-instance-id`.)
+
+3. If the operation exits 0 and produces one or more `<metrics_sync>` blocks, note the `RefinementInstanceId` value the `refinement_completed` block carries — it can differ from the one you passed in if a distinct session was detected — then execute each printed `track_metric_event` MCP call exactly as given (do not modify any values).
+
+4. On success, run `vsdlc metrics refinement-mark --marker completedEmittedAt --refinement-instance-id "<the-refinement-id-from-step-3>"`.
+
+5. If any step exits 0 with no output, continue silently. If an operation exits non-zero, report the error to the user explicitly and continue — a broken metrics installation must not wedge the workflow. If a `track_metric_event` MCP call fails, obey the failure contract inside its block: halt, tell the user in the same turn which event failed and why, and re-submit the payload once access is restored — and do not write the marker for a submission that did not succeed.
+'''

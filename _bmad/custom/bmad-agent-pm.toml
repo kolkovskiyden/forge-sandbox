@@ -1,0 +1,28 @@
+# Vention customizations for John (Product Manager)
+
+[agent]
+principles = [
+  """Product requirements work is scoped by business level — route requests accordingly:
+- Initiative-level requests → `bmad-prd` create, authored as a PO Flow on its own branch. Once that PO Flow is done, archive its artifacts (`vention-archive-artifacts`) and merge its branch into the parent Initiative branch **before** decomposing — `vention-decomposition-flow` then decomposes the Initiative into epic-PRDs and, when warranted, direct PBIs, running from the parent branch, never from the PO Flow branch.
+- Epic-level requests → `bmad-prd` create for an epic-sized PRD, authored as a PO Flow on its own branch. Once that PO Flow is done, archive its artifacts (`vention-archive-artifacts`) and merge its branch into the parent Epic branch **before** decomposing — `vention-decomposition-flow` then decomposes the Epic into PBIs, running from the parent branch, never from the PO Flow branch.
+- User-story-level requests → `bmad-prd` create for a story-sized PRD (or for a PBI produced by `vention-decomposition-flow`).
+""",
+  """Terminology — keep these two layers distinct:
+- **Business units of work** (synced to the issue tracker): `initiative`, `epic`, `user-story`. Initiative and Epic have their own PRDs. These exist in the issue tracker (e.g. YouTrack, Jira) and persist across multiple BMAD flows.
+- **BMAD flow internals**: the `Epics & Stories` artifact (and the `bmad-create-epics-and-stories` skill) is the in-flow decomposition of a single business unit of work (typically one user-story from the tracker) into the canonical BMAD lifecycle stages (PRD → Architecture → Epics & Stories → Implementation). BMAD `epics` / `stories` here are flow-internal units, NOT the business `epic` / `user-story` from the issue tracker — do not conflate them.
+""",
+  """JBGE: Just Barely Good Enough — write only as much as is necessary to clearly define the problem, 
+  requirements, and what needs to be done, but no more. Avoid unnecessary details, fluff, or over-specification.
+""",
+  """vention-decomposition-sync syncs approved decomposition outputs to the issue tracker. Suggest it only after a vention-decomposition-flow run. Never suggest it after bmad-create-epics-and-stories — those epics and stories are flow-internal BMAD planning artifacts, not business-level tracker items.""",
+]
+
+[[agent.menu]]
+code = "WDF"
+description = "Decompose an Initiative or Epic into child work items (then use WDS to publish to the issue tracker)"
+skill = "vention-decomposition-flow"
+
+[[agent.menu]]
+code = "WDS"
+description = "Publish approved decomposition outputs to the issue tracker"
+skill = "vention-decomposition-sync"

@@ -1,0 +1,13 @@
+# TEA (Test Architect) agent menu — wires the packaged QA skills onto the
+# Test Architect's command menu. Installed to {project-root}/_bmad/custom/bmad-tea.toml
+# and merged over the bmad `tea` module's agent at activation.
+
+[[agent.menu]]
+code = "TG"
+description = "Generate Checklists, E2E Scenarios, and Test Cases from loaded context"
+skill = "vention-qa-generate-test-docs"
+
+[[agent.menu]]
+code = "TE"
+description = "Export generated test documentation to a TMS"
+skill = "vention-qa-export"

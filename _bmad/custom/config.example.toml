@@ -1,0 +1,11 @@
+# Shared central configuration for _bmad/custom/config.toml.
+# If config.toml is absent, copy this file to create your team's active configuration.
+# BMAD may create a comment-only config.toml; edit that file if it already exists.
+# V-SDLC does not overwrite or delete the customer-owned config.toml.
+# Tables deep-merge over base config; keyed entries merge by key.
+# Central configuration affects project-wide settings and agent entries under [agents.*].
+# It does not customize a skill's [agent] or [workflow] behavior.
+# Example: change the shared description of the PM agent entry.
+#
+# [agents.bmad-agent-pm]
+# description = "Product manager for regulated healthcare delivery."

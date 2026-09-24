@@ -1,0 +1,47 @@
+# Vention customizations for the upstream BMAD 6.10 bmad-dev-auto workflow.
+#
+# The upstream worker remains unchanged. This overlay supplies Vention stage
+# instrumentation, architecture authority, Git safety, and Stop-hook sizing.
+
+[workflow]
+
+activation_steps_prepend = [
+  "Keep `{project-root}` as the workspace root for the entire run. Resolve exactly one target Git repository from the invocation and existing local story/spec context before source mutation. In a multi-repo workspace, use `.vsdlc/workspace.toml` and the local checkout layout to validate that target; do not query an issue tracker. If the target is missing, ambiguous, outside the configured workspace, or the requested change requires more than one Git repository, use the upstream HALT protocol with status `blocked` and the exact target-resolution condition. Do not ask the user to restart from another directory and do not change `{project-root}`. Bind the resolved absolute path as `target_repo_root`. Perform the upstream version-control sanity check in `target_repo_root`, and also HALT `blocked` before source mutation when its branch is `main` or `master`, detached, or does not match the workspace branch when the workspace is a separate Git repository. When the only blocking condition is that a clean `target_repo_root` sits on its default branch while the workspace branch is a non-default branch, offer in the HALT report to create and switch to a branch named exactly like the workspace branch from the current default-branch HEAD; create it only after explicit user confirmation, then repeat this preflight. Never stash, clean, or otherwise switch branches to work around a HALT.",
+  "After target-repository preflight succeeds, emit the `implementation` stage-start signal from the workspace root: `vsdlc metrics stage-start --stage implementation`. If the operation exits 0 and produces a `<metrics_sync>` block, execute the MCP call it contains and obey the failure contract inside that block: a failed submission is a blocker. Because this workflow also runs unattended, do not try to halt in front of a user — use the upstream HALT protocol with status `blocked`, naming the failed event and the reported error as the blocking condition, and do not proceed to planning or implementation. When the run is interactive and the user restores access, re-submit the payload verbatim and continue. If it exits 0 with no output, continue silently. If the operation exits non-zero, report the error to the user explicitly and continue — a broken metrics installation must not wedge the flow. Framework-owned workspace state changes produced by this signal do not dirty `target_repo_root` unless both roots are the same repository.",
+  "Read optional architecture context per the architecture-spine-authority fact before planning or implementation; cite its decision IDs when the change implements them. Missing architecture is non-blocking.",
+]
+
+persistent_facts = [
+  "file:{project-root}/_bmad/custom/_shared/architecture-spine-authority.md",
+  "The workspace root and `target_repo_root` have separate responsibilities. Keep config, planning/implementation artifacts, the spec, metrics state, and `.vsdlc` hook commands under `{project-root}`. Perform codebase investigation, source edits, tests, and every upstream version-control operation in `target_repo_root`. Pass both roots and this split explicitly to every implementation or review subagent. Never commit framework artifacts from the workspace repository as part of the target-repository commit.",
+]
+
+on_complete = '''
+Cache the completed scope size under the exact story key the installed Stop hook will emit.
+
+Run this only when the terminal status is `done`. For `blocked` or any other terminal status, do nothing.
+
+1. Read `_bmad/custom/_shared/story-size-rubric.md` from the workspace root and classify the actual shipped diff in `target_repo_root` between `baseline_revision` and `final_revision` as exactly one of `small`, `medium`, or `large`.
+
+2. Resolve the cache key from the active execution mode:
+
+   - When `$env:BMAD_LOOP_MODE -eq '1'`, trim `$env:BMAD_LOOP_STORY_KEY`. It MUST match `^\d+-\d+-.+$`; if it is empty or malformed, report the raw value verbatim and stop without writing size state. This is the Full Flow story key that the Loop-aware Stop hook emits before the orchestrator reconciles `sprint-status.yaml`.
+   - Otherwise, take the basename stem of the upstream workflow's resolved `{spec_file}`. When that stem matches `^\d+-\d+-.+$`, it is the direct Full Flow story key: use it exactly and do not replace it with a separately discovered spec basename.
+   - Otherwise, resolve the same Quick Flow spec basename as the Stop hook by running from the project root (a portable Node one-liner, not a PowerShell one — it still needs a shell to invoke `node`; matching `findFirstSpecFile` in `src/lib/metrics/ops/hook-stop.ts`, including its silently-skip-unreadable-directories behavior):
+
+   ```bash
+   node -e "const fs=require('node:fs'),path=require('node:path');const walk=d=>{let r=[];let es;try{es=fs.readdirSync(d,{withFileTypes:true});}catch{return r;}for(const e of es){const p=path.join(d,e.name);if(e.isDirectory())r.push(...walk(p));else if(/^spec-.*\.md$/i.test(e.name))r.push(p);}return r;};if(fs.existsSync('_bmad-output')){const m=walk('_bmad-output');if(m.length)console.log(path.basename(m[0]));}"
+   ```
+
+   Trim stdout. If it is empty, stop silently. Otherwise it MUST match `^spec-.+\.md$`; if it does not, report the raw output verbatim and stop without writing size state. Remove the trailing `.md`. This first-match rule intentionally mirrors the installed Quick Flow Stop hook when multiple specs exist.
+
+3. Cache the result for that exact resolved key:
+
+   ```bash
+   vsdlc metrics story-size \
+     --story-name "<Loop-story-key-or-Full-Flow-story-key-or-detector-selected-spec-stem>" \
+     --size "<small|medium|large>"
+   ```
+
+4. Produce no user-facing output on success. If the helper fails, report its error verbatim but otherwise preserve the completed workflow result. Do NOT invoke `vention-sync-story-metrics`, emit an MCP event, complete a stage manually, push, or create another commit: the Stop hook owns standard spec-based completion emission.
+'''

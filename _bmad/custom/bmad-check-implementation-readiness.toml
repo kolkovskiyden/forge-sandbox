@@ -1,0 +1,7 @@
+# Vention customizations for the implementation-readiness workflow.
+
+[workflow]
+persistent_facts = [
+  "file:{project-root}/_bmad/custom/_shared/architecture-spine-authority.md",
+  """Architecture discovery follows the architecture-spine-authority fact. A missing, non-final, or wrong-altitude spine is the standard missing/incomplete-architecture finding; ignore architecture-named files other than the exact legacy `{planning_artifacts}/architecture.md` as fallback candidates.""",
+]

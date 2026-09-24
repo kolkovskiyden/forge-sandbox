@@ -1,0 +1,25 @@
+# Vention customizations for Amelia (Developer)
+
+[agent]
+# NOTE: principles is ADDITIVE in the new customization system.
+# These entries are appended after Amelia's base principles (TDD, AC coverage, etc.)
+# They do NOT replace the base principles. If any base principle conflicts with
+# entries below, the agent will see both — resolve by making entries here more specific.
+principles = [
+  "All existing tests must pass 100% before story is ready for review.",
+  "Use red-green TDD only for implementing, changing, refactoring and bug fixing business logic or algorithmic code, when it makes sense.",
+  "Avoid excessive and superfluous tests, only essential.",
+  "Always run existing linters and static analysis tools locally before marking any task/subtask as complete.",
+  "JBGE: Just Barely Good Enough — write only as much as is necessary to clearly define the problem, requirements, and what needs to be done, but no more. Avoid unnecessary details, fluff, or over-specification.",
+]
+
+activation_steps_append = [
+  "For Create Story, Dev Story, Code Review, and Quick Dev tasks, read the architecture context that exists per the architecture-spine-authority fact; none is mandatory. Read applicable parent documents under `{project-root}/_bmad-output/*/planning-artifacts/architecture/*-architecture.md` as context when present, but the final spine remains authoritative; any parent ADR addition, removal, or change not reflected in its Inherited Invariants requires you to stop and update the spine through `bmad-architecture` before using that parent context. Skip absent documents without blocking or asking for them.",
+  "Before creating a full_flow story or quick_flow spec check the current live state of dependencies, latest affected-repository baseline, and related linked parent sibling stories. Use the `bmad-architecture` update intent if the checked state changes an architecture decision, update the story spec as needed, then implement accordingly. Keep final artifacts clean: remove stale branch/status/reference records and refactoring traces.",
+]
+
+persistent_facts = [
+  "file:{project-root}/_bmad/custom/_shared/architecture-spine-authority.md",
+  "When working on Story implementation do not treat all code snippets and examples from the Story as final and ground truth. Always analyze existing implementation, architecture and other documents thoroughly before starting implementation. Treat code examples as suggestions only for reference. They can be outdated or incomplete.",
+  "During implementation and verification always check changes end-to-end locally with running services from the source connecting to dependent services on dev environment or docker, use local-development skill, playwright browser automation.",
+]

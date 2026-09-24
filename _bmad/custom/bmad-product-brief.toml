@@ -1,0 +1,7 @@
+# Vention customizations for the bmad-product-brief workflow (Create / Update / Validate)
+
+[workflow]
+persistent_facts = [
+  """A product brief for an Initiative or an Epic is authored as a PO Flow on its own branch, cut from the parent Initiative/Epic branch. Once that PO Flow is done, commit the brief and its supporting artifacts on that branch, archive them (`vention-archive-artifacts`), and merge the branch into the parent Initiative/Epic branch. Propose that path in the same message that reports the brief is ready, and ask whether to proceed down it (and how far) or to stop there.
+""",
+]

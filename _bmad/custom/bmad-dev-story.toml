@@ -1,0 +1,28 @@
+# Vention customizations for the bmad-dev-story workflow.
+#
+# Caches a `storySizes[<story_key>]` entry in the branch-scoped bmad-metrics
+# state file so the Stop hook can stamp `Size` on the eventual
+# `story_completed` MCP payload when the story is later flipped to `done`.
+# Sizing happens silently; no MCP call is made here.
+
+[workflow]
+
+on_complete = """
+Cache the completed scope size for this story so the metrics pipeline can emit it later.
+
+1. Read `_bmad/custom/_shared/story-size-rubric.md` and apply it to the just-implemented story (the actual change shipped, not the original plan). Pick exactly one of: `small`, `medium`, `large`.
+
+2. Determine the story key — the same identifier used in `sprint-status.yaml` and that the Stop hook will emit as `StoryName` (e.g. `1-2-user-auth`). Prefer the story file stem you already resolved during the run.
+
+3. Invoke the operation from the project root (overwrite latest-wins — implementation skill is authoritative for size):
+
+   ```bash
+   vsdlc metrics story-size \
+     --story-name "<story-key>" \
+     --size "<small|medium|large>"
+   ```
+
+4. Produce no user-facing size output. Do NOT make an MCP call here — the Stop hook emits `story_completed` when the story is later flipped to `done` in `sprint-status.yaml`.
+
+If the helper returns a non-zero exit code, report the error verbatim to the user but otherwise continue — sizing is best-effort. If the helper succeeds, do not mention it at all.
+"""

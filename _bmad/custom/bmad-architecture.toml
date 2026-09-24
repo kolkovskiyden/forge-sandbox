@@ -1,0 +1,23 @@
+# Vention customizations for the upstream story-level architecture workflow.
+
+[workflow]
+run_folder_pattern = "spine"
+
+persistent_facts = [
+  "file:{project-root}/docs/index.md",
+  """Terminology: Synced with the issue tracker Initiative, Epic, and User Story are business work items. BMAD epics and stories are flow-internal planning units and must not be conflated with them.""",
+  """Scope: this workflow governs one tracker User Story. Write `ARCHITECTURE-SPINE.md` to the workflow's configured output location and set its frontmatter to `altitude: user-story`. A spine is authoritative only after the reviewer gate sets `status: final`; drafts and interrupted runs are non-authoritative.""",
+  """Parent architecture inheritance:
+1. Resolve the applicable Epic and Initiative parents from `parentPrd` references in the User Story PRD/spec and its parent specifications. An absent `parentPrd` means no parent at that level; an invalid or ambiguous reference requires a guided question and blocks headless finalization.
+2. Resolve the current-format architecture document for each parent specification. Prove ownership through a matching `inputDocuments` reference to the resolved parent PRD; never accept a candidate whose ownership is unprovable. If more than one proven candidate exists for a parent level, guided runs ask the user and headless runs block finalization.
+3. Import only applicable `## ADR{n}:` entries marked `**Status:** decided`, using their `### Decision` statements. Before import, block finalization on duplicate ADR numbers within one parent or when a decided ADR lacks a non-empty, non-placeholder Decision. Preserve each source and qualify IDs by parent level: `initiative-ADR{n}` and `epic-ADR{n}`. List them as read-only Inherited Invariants; never renumber or recreate them as local ADs. A parent with no decided ADRs contributes nothing.
+4. Surface any parent-parent or parent-local contradiction for resolution. Never silently override or weaken an inherited decision, and never finalize while a conflict remains.""",
+  """Brownfield coverage lenses for the touched scope: service and data ownership; API and BFF contracts; events and cross-service integration; authorization; component and module boundaries. Each is decided, deferred, or an explicit open question.""",
+  """Vention story architecture inputs: use the applicable story or bug and its PRD/spec as scope, load Vention UX input from `{planning_artifacts}/**/*ux*.md` when present, and consult related researches. Treat every loaded Vention input as load-bearing and reconcile it against the spine before finalization.""",
+  """Every decision-type memlog entry includes a brief rationale clause explaining why the option won.""",
+  """Legacy migration input: read an existing `{planning_artifacts}/architecture.md` as context when present, but never create or update that legacy format.""",
+]
+
+finalize_reviewers = [
+  "Verify the touched-scope brownfield lenses are each decided, deferred, or open; applicable parent decisions use source-qualified initiative-ADRn or epic-ADRn IDs; lineage is unambiguous; and no inherited conflict remains unsurfaced. The spine must not be marked final until these checks pass.",
+]

@@ -1,0 +1,15 @@
+# Vention customizations for the bmad-create-epics-and-stories workflow
+
+[workflow]
+persistent_facts = [
+  """Terminology — keep these two layers distinct:
+- **Business units of work** (synced to the issue tracker): `initiative`, `epic`, `user-story`. Initiative and Epic have their own PRDs. These exist in the issue tracker (e.g. YouTrack, Jira) and persist across multiple BMAD flows.
+- **BMAD flow internals**: the `Epics & Stories` artifact (and the `bmad-create-epics-and-stories` skill) is the in-flow decomposition of a single business unit of work (typically one user-story from the tracker) into the canonical BMAD lifecycle stages (PRD → Architecture → Epics & Stories → Implementation). BMAD `epics` / `stories` here are flow-internal units, NOT the business `epic` / `user-story` from the issue tracker — do not conflate them.
+""",
+  "file:{project-root}/_bmad/custom/_shared/architecture-spine-authority.md",
+  """Architecture traceability — binding rules:
+1. Input: the authoritative spine per the architecture-spine-authority fact. Its local `### AD-n` Rule fields and Inherited Invariants under qualified `initiative-ADRn` / `epic-ADRn` IDs are the architecture requirement set. A non-authoritative spine follows the workflow's standard missing-architecture handling.
+2. Coverage: each epic in `## Epic List` carries an `**ADs covered:** AD-1, AD-3, initiative-ADR2, epic-ADR2, …` line immediately after `**FRs covered:**`. An epic with no architecture coupling skips the line.
+3. Validation: every local and inherited decision in the final spine must be cited by at least one epic. An uncovered decision is a blocking gap: fix the epic breakdown or update the spine through `bmad-architecture`. Report the result before completion.
+""",
+]

@@ -1,0 +1,34 @@
+# Vention customizations for the bmad-code-review workflow.
+#
+# Fallback-only size cache: section 6 of step-04-present.md already writes
+# `done` to the story file and `sprint-status.yaml` before this hook runs, so
+# the Stop hook may fire before `on_complete`. The implementation skill that
+# preceded the review (bmad-dev-story or bmad-quick-dev) is the primary
+# source of size; this hook only writes when no value exists for the key.
+
+[workflow]
+activation_steps_append = [
+  "Before reviewing a story or spec check the current live state of dependencies, latest affected-repository baseline, and related linked parent sibling stories. Reflect any state changes in the story or spec as needed, then review accordingly.",
+]
+
+on_complete = """
+Fallback for caching a completed scope size for the reviewed implementation.
+The primary writer is the upstream implementation skill (`bmad-dev-story` or `bmad-quick-dev`);
+this hook only fills the gap for legacy stories or out-of-band review where no value was cached.
+With the `--if-missing` flag the operation is a no-op when `storySizes[<story-key>]` already has a value.
+
+1. Read `_bmad/custom/_shared/story-size-rubric.md` and apply it to the **reviewed implementation** — the code that was just reviewed, not the review work itself. Pick exactly one of: `small`, `medium`, `large`.
+
+2. Use the same story key that section 6 wrote to `sprint-status.yaml` (the workflow's resolved `{story_key}`, e.g. `1-2-user-auth`). Skip this hook entirely if no story key was resolved during the run.
+
+3. Invoke the operation from the project root:
+
+   ```bash
+   vsdlc metrics story-size \
+     --story-name "<story-key>" \
+     --size "<small|medium|large>" \
+     --if-missing
+   ```
+
+4. Produce no user-facing size output. Do NOT make an MCP call here. If the helper returns a non-zero exit code, surface the error verbatim but otherwise continue — sizing is best-effort.
+"""

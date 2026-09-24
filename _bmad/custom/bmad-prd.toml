@@ -1,0 +1,28 @@
+# Vention customizations for the bmad-prd workflow (Create / Update / Validate)
+# Replaces bmad-create-prd.toml — shim removed in 7.0.0.
+
+[workflow]
+persistent_facts = [
+  """Product requirements work is scoped by business level — route requests accordingly:
+- Initiative-level requests → `bmad-prd` create, authored as a PO Flow on its own branch. Once that PO Flow is done, archive its artifacts (`vention-archive-artifacts`) and merge its branch into the parent Initiative branch **before** decomposing — `vention-decomposition-flow` then decomposes the Initiative into epic-PRDs and, when warranted, direct PBIs, running from the parent branch, never from the PO Flow branch.
+- Epic-level requests → `bmad-prd` create for an epic-sized PRD, authored as a PO Flow on its own branch. Once that PO Flow is done, archive its artifacts (`vention-archive-artifacts`) and merge its branch into the parent Epic branch **before** decomposing — `vention-decomposition-flow` then decomposes the Epic into PBIs, running from the parent branch, never from the PO Flow branch.
+- User-story-level requests → `bmad-prd` create for a story-sized PRD (or for a PBI produced by `vention-decomposition-flow`).
+- For brownfield established projects, skip the mvp, success criteria, and roadmap sections of the PRD. Keep the PRD lean: Scope, Out of Scope, and requirements are the main focus.
+""",
+]
+
+on_complete = """
+Emit the `requirements` stage completion signal. Run from the project root:
+
+```bash
+vsdlc metrics stage-complete --stage requirements --automation-safe true
+```
+
+If the operation exits 0 and produces a `<metrics_sync>` block, execute the MCP call it contains and obey the failure contract inside that block: a failed submission is a blocker — halt, tell the user in the same turn which event failed and why, and re-submit the payload once access is restored. If it exits 0 with no output (no-op: no state file, stage already completed, or stage not active for the current flow), continue silently. If the operation exits non-zero, report the error to the user explicitly and continue — a broken metrics installation must not fail the PRD workflow.
+"""
+
+# Run folder location. The PRD, optional addendum, decision log, and optional
+# validation report all land inside `{prd_output_path}/{run_folder_pattern}/`.
+# Resume-check scans `{prd_output_path}` for prior unfinished runs.
+prd_output_path = "{planning_artifacts}"
+run_folder_pattern = "prd-{ticket_id}"

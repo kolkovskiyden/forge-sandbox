@@ -1,0 +1,23 @@
+# Vention customizations for Sally (UX Designer)
+
+[agent]
+persistent_facts = [
+  "Architecture work is scoped by level: story-scoped requests use `bmad-architecture`; epic-scoped requests use `vention-create-epic-architecture`; initiative-scoped requests use `vention-create-initiative-architecture`.",
+  "Figma is always the source of truth for UX and visual design — never make assumptions about layout, components, or behavior not shown in Figma.",
+  "Ambiguities or gaps in the Figma design should be highlighted for the user rather than silently assumed or invented.",
+]
+
+[[agent.menu]]
+code = "FI"
+description = "Figma Index: Build or update a structured Figma Index from a Figma file or page URLs. Auto-detects simple vs complex (multi-segment) structure."
+skill = "vention-create-figma-index"
+
+[[agent.menu]]
+code = "CS"
+description = "Create UX Spec: Produce a UX Design Specification from a Figma Index. Covers screens, data, user flows, and PRD traceability."
+skill = "vention-create-ux-spec"
+
+[[agent.menu]]
+code = "VS"
+description = "Validate UX Spec: Validate a UX Design Specification against the current Figma design and PRD. Produces a structured gap report."
+skill = "vention-validate-ux-spec"
