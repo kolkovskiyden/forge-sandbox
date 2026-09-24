@@ -9,12 +9,15 @@
   "sddStages": {
     "requirements": "not_started",
     "design": "not_started",
-    "architecture": "not_started",
+    "architecture": "completed",
     "planning": "in_progress"
   },
   "knownArtifacts": [
     {
       "path": "_bmad-output/epic/epic-ft-1-pomodoro-tracker.json"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/architecture/pomodoro-tracker-architecture.md"
     },
     {
       "path": "_bmad-output/epic/planning-artifacts/briefs/brief-forge-sandbox-2026-09-24/.memlog.md"
@@ -26,7 +29,31 @@
       "path": "_bmad-output/epic/planning-artifacts/briefs/brief-forge-sandbox-2026-09-24/brief.md"
     },
     {
+      "path": "_bmad-output/epic/planning-artifacts/ft-1-drift-resolutions.md"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/prd-ft-1/.memlog.md"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/prd-ft-1/addendum.md"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/prd-ft-1/edit-prose-addendum.md"
+    },
+    {
       "path": "_bmad-output/epic/planning-artifacts/prd-ft-1/edit-prose-prd.md"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/prd-ft-1/edit-structure-addendum.md"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/prd-ft-1/edit-structure-prd.md"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/prd-ft-1/prd.md"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/prd-ft-1/reconcile-brief.md"
     },
     {
       "path": "_bmad-output/epic/planning-artifacts/prd-ft-1/review-rubric.md"
