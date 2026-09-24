@@ -1,0 +1,38 @@
+_bmad-output/story/story-ft-2-pomodoro-tracker-product-brief.json
+  s_1a8792122cb627::t_aac56ddbc2073d 1-28
+_bmad-output/epic/planning-artifacts/briefs/brief-forge-sandbox-2026-09-24/.memlog.md
+  s_1a8792122cb627::t_374ae88fd14402 1-2,4-5
+  s_1a8792122cb627::t_29196f06e40d24 6
+  s_1a8792122cb627::t_148f305cfc02e9 13-17
+  s_1a8792122cb627::t_6727fb773fbc71 18
+  s_1a8792122cb627::t_783c6e2efe8aec 8-12
+  s_1a8792122cb627::t_d75a0077e737e2 3,19-20
+  s_1a8792122cb627::t_5ca61238909521 7
+_bmad-output/epic/planning-artifacts/briefs/brief-forge-sandbox-2026-09-24/brief.md
+  s_1a8792122cb627::t_374ae88fd14402 1-2,4-9,11
+  s_1a8792122cb627::t_148f305cfc02e9 10,12-13,15-17,19-26,28,33-38,42-46,48-50,52-55,57-60,63,65-69
+  s_1a8792122cb627::t_d75a0077e737e2 3,14,18,27,29-32,40-41,47,51,56,61-62,64
+  s_1a8792122cb627::t_6727fb773fbc71 39
+_bmad-output/epic/planning-artifacts/briefs/brief-forge-sandbox-2026-09-24/addendum.md
+  s_1a8792122cb627::t_783c6e2efe8aec 27-31
+  s_1a8792122cb627::t_5ca61238909521 1-2,4-26
+  s_1a8792122cb627::t_d75a0077e737e2 3
+_bmad-output/epic/epic-ft-1-pomodoro-tracker.json
+  s_1a8792122cb627::t_c86b63b36109f3 18-26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "413a755ed7a8d1cf9832958e4399d1cd873d4286",
+  "prompts": {},
+  "sessions": {
+    "s_1a8792122cb627": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c3693228-0cb8-4fec-9c2c-f57339977c94",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Denis <denis.kolkovskiy@cyber-sun.com>"
+    }
+  }
+}
