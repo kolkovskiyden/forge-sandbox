@@ -8,7 +8,7 @@
   "gitBranchName": "story/ft-4-create-rename-pick-tasks",
   "sddStages": {
     "design": "not_started",
-    "implementation": "in_progress",
+    "implementation": "completed",
     "testing": "not_started"
   },
   "knownArtifacts": [
@@ -97,7 +97,11 @@
       "path": "_bmad-output/epic/planning-artifacts/prd-ft-1/review-rubric.md"
     },
     {
-      "path": "_bmad-output/story/implementation-artifacts/spec-ft-4-create-rename-pick-tasks.md"
+      "path": "_bmad-output/story/implementation-artifacts/deferred-work.md"
+    },
+    {
+      "path": "_bmad-output/story/implementation-artifacts/spec-ft-4-create-rename-pick-tasks.md",
+      "specDone": true
     },
     {
       "path": "_bmad-output/story/story-ft-4-create-rename-pick-tasks.json"
@@ -107,5 +111,8 @@
   "reviewTracking": {
     "reviewIterationsCount": 0,
     "reviews": []
+  },
+  "storySizes": {
+    "spec-ft-4-create-rename-pick-tasks": "large"
   }
 }
