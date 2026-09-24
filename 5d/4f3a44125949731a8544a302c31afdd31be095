@@ -1,0 +1,135 @@
+apps/web/index.html
+  s_b150cadb084e43::t_e88f288406caa7 1-13
+apps/web/src/currentTask.test.ts
+  s_b150cadb084e43::t_e88f288406caa7 1-25
+apps/web/src/components/TaskPicker.tsx
+  s_b150cadb084e43::t_a96398a6e50786 36-37,52
+  s_b150cadb084e43::t_cbee31bf91740c 1-35,38-51,53-74
+apps/web/src/api.ts
+  s_b150cadb084e43::t_a96398a6e50786 19-21,29-38,44-46,48-52
+  s_b150cadb084e43::t_e88f288406caa7 1-18,22-28,39-43,47,53-70
+apps/web/vite.config.ts
+  s_b150cadb084e43::t_11cf2f232e386c 5-7,14
+  s_b150cadb084e43::t_e88f288406caa7 1-4,8-13,15-17
+apps/web/src/components/TomatoIcon.tsx
+  s_b150cadb084e43::t_cbee31bf91740c 1-9
+apps/server/src/db.ts
+  s_b150cadb084e43::t_fbde81a5ada960 1-13,16-26,31,34,45-56,59,61,64-65
+  s_b150cadb084e43::t_c997169abdcfb3 14-15,27-30,32-33,35-44,57-58,60,62-63
+apps/web/src/components/EmptyState.tsx
+  s_b150cadb084e43::t_cbee31bf91740c 1-18
+packages/shared/src/task.ts
+  s_b150cadb084e43::t_fe6e030e6baa86 1-32,46,50-62
+  s_b150cadb084e43::t_c997169abdcfb3 37
+  s_b150cadb084e43::t_8b503941d4620e 33-36,38-45,47-49
+packages/shared/src/errors.ts
+  s_b150cadb084e43::t_fe6e030e6baa86 1-29
+apps/server/src/migrations.ts
+  s_b150cadb084e43::t_fbde81a5ada960 1-17
+apps/web/src/components/SectionHeading.tsx
+  s_b150cadb084e43::t_cbee31bf91740c 1-11
+apps/web/src/components/AppShell.tsx
+  s_b150cadb084e43::t_cbee31bf91740c 1-32
+apps/web/tsconfig.test.json
+  s_b150cadb084e43::t_fb48084116503c 1-7
+packages/shared/package.json
+  s_b150cadb084e43::t_fe6e030e6baa86 1-14,18-19
+  s_b150cadb084e43::t_34a8fc0a00ce02 15-17
+apps/web/src/components/TaskNameForm.tsx
+  s_b150cadb084e43::t_cbee31bf91740c 1-81,83-103,106-119
+  s_b150cadb084e43::t_a96398a6e50786 82,104-105
+apps/server/package.json
+  s_b150cadb084e43::t_34a8fc0a00ce02 8-14
+  s_b150cadb084e43::t_fbde81a5ada960 1-7,15-16
+_bmad-output/story/implementation-artifacts/deferred-work.md
+  s_b150cadb084e43::t_04f5dfef3fd979 1-8
+package.json
+  s_b150cadb084e43::t_1982eefc52bae3 16
+  s_b150cadb084e43::t_86035fdc6d6766 24
+  s_b150cadb084e43::t_5baed745a47337 1-15,17-19,29-30
+  s_b150cadb084e43::t_34a8fc0a00ce02 22-23,25-28
+  s_b150cadb084e43::t_fb48084116503c 20-21
+apps/server/src/tasks.ts
+  s_b150cadb084e43::t_fbde81a5ada960 1-65
+packages/shared/src/index.ts
+  s_b150cadb084e43::t_fe6e030e6baa86 1-2
+apps/web/src/currentTask.ts
+  s_b150cadb084e43::t_e88f288406caa7 1-37
+_bmad-output/story/story-ft-4-create-rename-pick-tasks.json
+  s_b150cadb084e43::t_abdb0bf6ab6007 11
+  s_b150cadb084e43::t_b4381cc852617c 1-10,12-111
+apps/web/tsconfig.json
+  s_b150cadb084e43::t_11cf2f232e386c 4-8,13-15,17-22
+  s_b150cadb084e43::t_e88f288406caa7 1-3,9-12,16,23
+apps/web/tsconfig.node.json
+  s_b150cadb084e43::t_11cf2f232e386c 1-10
+packages/shared/tsconfig.test.json
+  s_b150cadb084e43::t_fb48084116503c 1-5
+packages/shared/src/task.test.ts
+  s_b150cadb084e43::t_fe6e030e6baa86 1-19,31-42
+  s_b150cadb084e43::t_8b503941d4620e 20-30
+apps/server/src/app.ts
+  s_b150cadb084e43::t_fbde81a5ada960 1-4,6-7,9-15,27-51,54-56,73,76-77,79-82,88-93
+  s_b150cadb084e43::t_3a07826ad67edf 74
+  s_b150cadb084e43::t_a9d48e6f889b8c 5,8,16-26,52-53,57-72,75,78,83-87
+apps/server/src/app.test.ts
+  s_b150cadb084e43::t_36ca3e182de655 1,3,7,162,170-171,192-253
+  s_b150cadb084e43::t_8f3a50fe0dc7b9 164-169
+  s_b150cadb084e43::t_89e1907c558fe9 2,4-6,8-161,163,172-191,254-258
+_bmad-output/story/implementation-artifacts/spec-ft-4-create-rename-pick-tasks.md
+  s_b150cadb084e43::t_8a4d26eec80c67 6
+  s_b150cadb084e43::t_a54b28f3ef89e5 1-4,7-63,67-77,86-93,103-104,113-122
+  s_b150cadb084e43::t_ea0e13bd421fcd 78-85,105-112
+  s_b150cadb084e43::t_92f45a20193b3e 5,123-199
+  s_b150cadb084e43::t_e17a9a572eac1f 64-66
+  s_b150cadb084e43::t_5ba9ed2319f4df 94-102
+vitest.config.ts
+  s_b150cadb084e43::t_5baed745a47337 1-14
+apps/server/tsconfig.json
+  s_b150cadb084e43::t_fbde81a5ada960 1-12
+apps/web/src/index.css
+  s_b150cadb084e43::t_e88f288406caa7 1
+apps/web/src/App.tsx
+  s_b150cadb084e43::t_cbee31bf91740c 1-14,17-28,31,38-67,69-70,72-92
+  s_b150cadb084e43::t_a96398a6e50786 15-16,29-30,32-37,68,71
+apps/server/tsconfig.test.json
+  s_b150cadb084e43::t_fb48084116503c 1-4,11-13
+  s_b150cadb084e43::t_36ca3e182de655 5-10
+.gitignore
+  s_b150cadb084e43::t_5baed745a47337 49-53
+apps/server/src/main.ts
+  s_b150cadb084e43::t_fbde81a5ada960 1-8,34-35,42-45,54-55,57,61-67
+  s_b150cadb084e43::t_11cf2f232e386c 9-33,36-41,46-53,56,58-60
+apps/web/src/main.tsx
+  s_b150cadb084e43::t_e88f288406caa7 1-15
+apps/web/package.json
+  s_b150cadb084e43::t_e88f288406caa7 1-7,24-25
+  s_b150cadb084e43::t_34a8fc0a00ce02 9-23
+  s_b150cadb084e43::t_11cf2f232e386c 8
+README.md
+  s_b150cadb084e43::t_76e3a0a31adc24 58-73
+packages/shared/tsconfig.json
+  s_b150cadb084e43::t_fe6e030e6baa86 1-12
+tsconfig.base.json
+  s_b150cadb084e43::t_5baed745a47337 1-13
+apps/web/src/components/TimerPlaceholder.tsx
+  s_b150cadb084e43::t_cbee31bf91740c 1-35
+package-lock.json
+  s_b150cadb084e43::t_b3df04c9c2fbe3 1-3110
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "5d4f3a44125949731a8544a302c31afdd31be095",
+  "prompts": {},
+  "sessions": {
+    "s_b150cadb084e43": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fdfc87db-75fb-4c0f-bec7-2ccf4e1e6d80",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Denis <denis.kolkovskiy@cyber-sun.com>"
+    }
+  }
+}
