@@ -1,0 +1,66 @@
+_bmad-output/epic/planning-artifacts/prd-ft-1/addendum.md
+  s_c9157cc70568ca::t_7225d844e65563 14-15,23,28,42-44,51-52,61
+  s_c9157cc70568ca::t_324d947bb7dee1 53-54
+  s_c9157cc70568ca::t_f7794b60a7f478 60
+  s_c9157cc70568ca::t_b270e225613f17 1-2,4-9,11-13,17,19,21,33,35,49-50,58-59
+  s_c9157cc70568ca::t_dccdee3971e781 10,16,18,20,22,24-27,29-31,34,36-41,45-48
+  s_c9157cc70568ca::t_b35cc31bb4f566 3,32,55-57
+_bmad-output/epic/planning-artifacts/prd-ft-1/.memlog.md
+  s_c9157cc70568ca::t_7225d844e65563 40
+  s_c9157cc70568ca::t_45634332752854 1-4,6-7
+  s_c9157cc70568ca::t_ffb71456d21d0e 39
+  s_c9157cc70568ca::t_324d947bb7dee1 27-37
+  s_c9157cc70568ca::t_c33f6d8019cb2b 41-42
+  s_c9157cc70568ca::t_f7794b60a7f478 26
+  s_c9157cc70568ca::t_dccdee3971e781 38
+  s_c9157cc70568ca::t_b35cc31bb4f566 5,43-48
+  s_c9157cc70568ca::t_d0b0b0c8a56214 8-12
+  s_c9157cc70568ca::t_b270e225613f17 13-25
+_bmad-output/story/story-ft-3-pomodoro-tracker-prd.json
+  s_1a8792122cb627::t_9a0607f702ad32 1-55
+_bmad-output/epic/planning-artifacts/prd-ft-1/reconcile-brief.md
+  s_c9157cc70568ca::t_14874e649dde8c 1-178
+_bmad-output/epic/planning-artifacts/prd-ft-1/prd.md
+  s_c9157cc70568ca::t_45634332752854 1-2,4-11
+  s_c9157cc70568ca::t_4a6cc8ead31c62 3,14,18,22,46,63,74,77-78,97-100,109,116,122,130,133,136-139,144,147,158,168,196,202,212,216,218,233,243,259-260,265,289,298,312,326,333-334,336,356,385,388,391,396,398-399,401,403,410,413
+  s_c9157cc70568ca::t_b270e225613f17 12-13,15-17,20-21,23,25,27-29,31-34,36-39,41-42,44-45,47-48,50-56,61-62,64,69-70,75-76,79-84,86,104,106-108,110-111,113,115,117-118,120-121,124-127,129,131,134,140-143,146,148,150-157,160-161,163,165-167,169-175,177,179-180,182,184-185,187,189,192-195,200-201,203,207-211,214-215,217,220-222,224-231,234,236-242,244-246,248-249,251,255-256,258,261,268-269,271,273-274,277,279-281,283,285-287,290-294,296-297,300-301,307,309-311,320,322,327-329,331,335,337-338,340-341,343-345,347-351,353,377-378,380,382-383,386-387,389-390,392-393
+  s_c9157cc70568ca::t_ffb71456d21d0e 19,30,40,87-96,101-103,145,198,235,324,355,357-368,372-373,375-376,381,414,424-425,433
+  s_c9157cc70568ca::t_324d947bb7dee1 24,26,35,49,57,59,65-68,71-73,85,105,112,114,119,132,135,159,162,164,176,178,181,186,188,190-191,197,204,206,213,219,232,250,252-254,262-264,266-267,272,275-276,278,282,284,288,295,299,302-306,308,313-319,321,325,330,332,339,342,352,354,369-371,379,384,394-395,397,400,402,404-409,411-412,415-423,426-432,434-435
+  s_c9157cc70568ca::t_c33f6d8019cb2b 43,58,60,123,128,149,183,199,205,223,247,257,270,323,346,374
+_bmad-output/epic/planning-artifacts/prd-ft-1/review-rubric.md
+  s_c9157cc70568ca::t_068bb0dcbb53be 1-88
+_bmad-output/epic/planning-artifacts/prd-ft-1/edit-structure-prd.md
+  s_c9157cc70568ca::t_164e9e56125bdc 1-99
+_bmad-output/epic/planning-artifacts/prd-ft-1/edit-prose-prd.md
+  s_c9157cc70568ca::t_16293a7f9bf991 1-29
+_bmad-output/epic/planning-artifacts/prd-ft-1/edit-prose-addendum.md
+  s_c9157cc70568ca::t_225281f4045c35 1-24
+_bmad-output/epic/planning-artifacts/prd-ft-1/edit-structure-addendum.md
+  s_c9157cc70568ca::t_7c5e217507b3db 1-90
+_bmad-output/epic/epic-ft-1-pomodoro-tracker.json
+  s_c9157cc70568ca::t_ae46322e5d10b5 27-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "7dd870a6ad53fca5b66bae354ca4b3ef4337e914",
+  "prompts": {},
+  "sessions": {
+    "s_1a8792122cb627": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c3693228-0cb8-4fec-9c2c-f57339977c94",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Denis <denis.kolkovskiy@cyber-sun.com>"
+    },
+    "s_c9157cc70568ca": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "87182cdb-087c-4dc7-84c4-99f8634177e8",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Denis <denis.kolkovskiy@cyber-sun.com>"
+    }
+  }
+}
