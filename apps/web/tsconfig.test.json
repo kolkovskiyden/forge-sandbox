@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": { "@pomodoro/shared": ["../../packages/shared/src/index.ts"] }
+  },
+  "exclude": []
+}
