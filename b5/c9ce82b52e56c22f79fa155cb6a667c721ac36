@@ -1,0 +1,26 @@
+_bmad-output/epic/planning-artifacts/architecture/pomodoro-tracker-architecture.md
+  s_2380c1cc7e9e28::t_d75450918a7a5d 20,66,82,90,136
+  s_2380c1cc7e9e28::t_1ff20604b1e2f7 44,72,86,100,114,128
+  s_2380c1cc7e9e28::t_87899692bbfaa3 1-3,5-19,21-27,29-31,33-39,41-43,45-47,49-53,55-57,59-61,63-65,67,69-71,73-75,77-81,83-85,87-89,91-95,97-99,101-103,105-109,111-113,115-117,119-123,125-127,129-131,133-135,137,139-141,143-145,147-151,153-155,157-159
+  s_2380c1cc7e9e28::t_24737183d8758f 4,28,32,58,142,156
+  s_2380c1cc7e9e28::t_471b0af9dd3d88 40,48,54,62,68,76,96,104,110,118,124,132,138,146,152,160
+_bmad-output/epic/epic-ft-1-pomodoro-tracker.json
+  s_2380c1cc7e9e28::t_1ff20604b1e2f7 12
+  s_2380c1cc7e9e28::t_d1d0c1b40d1f80 19-21,31-42,46-57
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "b5c9ce82b52e56c22f79fa155cb6a667c721ac36",
+  "prompts": {},
+  "sessions": {
+    "s_2380c1cc7e9e28": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "33684bc0-b2d0-4109-9b29-a1fc0082ce26",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Denis <denis.kolkovskiy@cyber-sun.com>"
+    }
+  }
+}
