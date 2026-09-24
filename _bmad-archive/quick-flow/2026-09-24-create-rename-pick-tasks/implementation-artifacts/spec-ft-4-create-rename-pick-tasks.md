@@ -16,7 +16,7 @@ context:
 
 **Problem:** The repo has no app code. FT-4 is the first story of epic FT-1: it has to deliver a runnable monorepo, durable Task storage, and a main screen where Tasks are created, renamed and picked as the Current Task.
 
-**Approach:** Scaffold the three npm workspaces from epic-ADR1. Build a Hono Task API on `node:sqlite` with migrations, sharing zod schemas through `packages/shared`. Build a React main screen: a static tomato timer placeholder plus the Task Picker, styled with Tailwind and Tailkit components pasted by the author.
+**Approach:** Scaffold the three npm workspaces from epic-ADR1. Build a Hono Task API on `node:sqlite` with migrations, sharing zod schemas through `packages/shared`. Build a React main screen: a static tomato timer placeholder plus the Task Picker, styled with Tailwind and Tailkit free components chosen with the author.
 
 ## Boundaries & Constraints
 
@@ -27,7 +27,7 @@ context:
 - epic-ADR8: TanStack Query, no router, Tailwind via `@tailwindcss/vite`
 - epic-ADR9: Vitest
 
-Name rules live once, in `packages/shared`, and both the server and the web app use them. The server listens on `127.0.0.1`, with `PORT` and `DB_PATH` overridable. Error codes are `name_required`, `name_too_long`, `duplicate_name`, `invalid_request` and `not_found`. Tailkit components are the author's pasted source, adapted into `apps/web/src/components/`, with a source note at the top of each file.
+Name rules live once, in `packages/shared`, and both the server and the web app use them. The server listens on `127.0.0.1`, with `PORT` and `DB_PATH` overridable. It refuses requests whose Host is not a loopback name (403) and bodies over 16 KB (413). Error codes are `name_required`, `name_too_long`, `duplicate_name`, `invalid_request`, `not_found` and `internal_error`. Tailkit components are copied from Tailkit's free set, chosen with the author, adapted into `apps/web/src/components/`, with a source note at the top of each file.
 
 **Ask First:** Any runtime dependency beyond hono, @hono/node-server, @hono/zod-validator, zod, react, react-dom and @tanstack/react-query. Any dev dependency beyond typescript, tsx, vite, @vitejs/plugin-react, tailwindcss, @tailwindcss/vite, vitest and concurrently. Any change to a pasted Tailkit component beyond wiring, props and removing assets.
 
@@ -81,7 +81,7 @@ Greenfield: no existing code. Planned structure:
 - [x] `apps/server/src/tasks.ts`, `app.ts` -- GET returns Open Tasks ordered by `created_at`. POST validates, checks duplicates and inserts. PATCH `/api/tasks/:id` renames a Task in any state, ignores the Task's own row in the duplicate check, and updates `updated_at`. Map a UNIQUE-constraint error to 409. `app.onError` returns the same error shape.
 - [x] `apps/server/src/main.ts` -- default `PORT=3000`, `DB_PATH=./data/pomodoro.sqlite`; create the parent directory.
 - [x] `apps/web/*` -- set up Vite with the React and Tailwind plugins and proxy `/api` to 3000. Use QueryClient; invalidate `['tasks']` after mutations. The Current Task is restored from localStorage and validated against the list. Show the empty state when there are no Tasks.
-- [x] `apps/web/src/components/*` -- adapt the pasted Tailkit components.
+- [x] `apps/web/src/components/*` -- adapt the chosen Tailkit components.
 - [x] `packages/shared/src/task.test.ts`, `apps/server/src/app.test.ts` -- cover every row of the I/O Matrix in-process against `:memory:`. Test that migrations are idempotent: reopening the same file applies nothing again.
 
 **Acceptance Criteria:**
@@ -106,6 +106,7 @@ The tomato placeholder is inline SVG plus the static text `25:00`. There are no 
 Decisions made during implementation:
 - The free Form Actions → With Link is a card with a link, not a pair of form buttons. Rename mode borrows only its link style for Cancel; Save is the Inline layout's button. The free Inputs component has no error variant, so the error state swaps its blue focus classes for red.
 - The case-insensitive duplicate check runs in JS (`toLowerCase`), so Cyrillic and other non-ASCII names fold too. SQLite's `lower()` in the partial unique index folds ASCII only and is the database backstop.
+- Task names are normalized before the rules apply: Unicode NFC, control characters turned into spaces, zero-width spaces removed, then trimmed. A name made only of invisible characters counts as empty.
 - An extra error code, `internal_error` (500), keeps unexpected failures in the one error shape. Malformed JSON maps to `invalid_request`.
 - Tasks created or renamed in the UI are written into the TanStack Query cache at once, then refetched.
 - The author approved these dev dependencies on 2026-09-24: `@types/node` (pinned to 22 to match the runtime), `@types/react` and `@types/react-dom`.
