@@ -1,0 +1,25 @@
+_bmad-output/epic/planning-artifacts/ft-1-drift-resolutions.md
+  s_c9157cc70568ca::t_315b13b1e960d7 1-31
+_bmad-archive/po-flow/2026-09-24-pomodoro-tracker-prd/ARCHIVE-MANIFEST.md
+  s_c9157cc70568ca::t_4654cd4b47af4e 1-10
+_bmad-archive/po-flow/2026-09-24-pomodoro-tracker-prd/planning-artifacts/ft-3-drift-resolutions.md
+  s_c9157cc70568ca::t_4654cd4b47af4e 1-11
+_bmad-output/epic/planning-artifacts/prd-ft-1/.memlog.md
+  s_c9157cc70568ca::t_315b13b1e960d7 5,49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "8dd0351819f8a2eb5a912a1162650e9ede731898",
+  "prompts": {},
+  "sessions": {
+    "s_c9157cc70568ca": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "87182cdb-087c-4dc7-84c4-99f8634177e8",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Denis <denis.kolkovskiy@cyber-sun.com>"
+    }
+  }
+}
