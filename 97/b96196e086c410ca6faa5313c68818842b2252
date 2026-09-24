@@ -1,0 +1,19 @@
+_bmad-output/epic/epic-ft-1-pomodoro-tracker.json
+  s_1a8792122cb627::t_66c91b9095d1e3 1-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "97b96196e086c410ca6faa5313c68818842b2252",
+  "prompts": {},
+  "sessions": {
+    "s_1a8792122cb627": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c3693228-0cb8-4fec-9c2c-f57339977c94",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Denis <denis.kolkovskiy@cyber-sun.com>"
+    }
+  }
+}
