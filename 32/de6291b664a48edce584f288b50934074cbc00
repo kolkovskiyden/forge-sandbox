@@ -1,0 +1,56 @@
+_bmad-output/epic/planning-artifacts/decomposition/index.md
+  s_ac8e49c01696b1::t_3d6fa926d363be 13,31,35,40,44,49,53,58,62,67,71,76,80,85,89,94,98,103,107,112,116,121,125,130,143,149,151,156-157,159,164-165,167,172-173,175,180-181,183,188-189,191,196-197,199,204-205,207,212-213,215,220-221,223,228-229,235-261,266-268,273-277
+  s_ac8e49c01696b1::t_f54973f94ab376 288
+  s_ac8e49c01696b1::t_246bc0e826209d 11
+  s_ac8e49c01696b1::t_296012b2815ecc 1-5,7-10,14-19,21-30,32-34,37,41-43,46,50-52,55,59-61,64,68-70,73,77-79,82,86-88,91,95-97,100,104-106,109,113-115,122-124,127,131-134,141-142,144-146,148,150,152-155,158,160-163,166,168-171,174,176-179,182,184-187,190,192-195,198,200-203,206,208-211,214,216-218,222,224-227,230-231,262-265,269-272
+  s_ac8e49c01696b1::t_e46166a7ab2638 36,38-39,45,47-48,54,56-57,63,65-66,72,74-75,81,83-84,90,92-93,99,101-102,108,110-111,117,119-120,126,128-129
+  s_ac8e49c01696b1::t_d1806f1bf66d68 6,12,20,135-140,232-234,278-287
+  s_ac8e49c01696b1::t_8a22a844014251 118,147,219
+_bmad-output/epic/planning-artifacts/decomposition/story-ft-11-today-and-day-view.md
+  s_ac8e49c01696b1::t_3d6fa926d363be 1-61
+_bmad-output/epic/planning-artifacts/decomposition/story-ft-12-week-view.md
+  s_ac8e49c01696b1::t_3d6fa926d363be 1-66
+_bmad-output/epic/planning-artifacts/architecture/pomodoro-tracker-architecture.md
+  s_ac8e49c01696b1::t_d488eb7548cc84 142,146
+_bmad-output/epic/planning-artifacts/decomposition/story-ft-14-settings.md
+  s_ac8e49c01696b1::t_3d6fa926d363be 1-62
+_bmad-output/epic/planning-artifacts/decomposition/story-ft-8-interval-end-alerts.md
+  s_ac8e49c01696b1::t_3d6fa926d363be 1-71
+_bmad-output/epic/planning-artifacts/decomposition/story-ft-6-offline-safe-records.md
+  s_ac8e49c01696b1::t_3d6fa926d363be 1-58
+_bmad-output/epic/planning-artifacts/prd-ft-1/prd.md
+  s_ac8e49c01696b1::t_5d051010cfbf56 158,334,415
+_bmad-output/epic/planning-artifacts/decomposition/story-ft-10-task-trees.md
+  s_ac8e49c01696b1::t_3d6fa926d363be 1-66
+_bmad-output/epic/planning-artifacts/decomposition/story-ft-13-done-tasks-and-garden.md
+  s_ac8e49c01696b1::t_3d6fa926d363be 1-64
+_bmad-output/epic/planning-artifacts/decomposition/story-ft-9-while-you-were-away.md
+  s_ac8e49c01696b1::t_3d6fa926d363be 1-64
+_bmad-output/epic/planning-artifacts/decomposition/story-ft-4-task-picker.md
+  s_ac8e49c01696b1::t_3d6fa926d363be 1-61
+_bmad-output/epic/planning-artifacts/ft-1-drift-resolutions.md
+  s_ac8e49c01696b1::t_eeab5f7aadc94c 32-42
+  s_ac8e49c01696b1::t_5d051010cfbf56 43-46
+_bmad-output/epic/planning-artifacts/decomposition/validation-report.md
+  s_ac8e49c01696b1::t_d1806f1bf66d68 1-81
+_bmad-output/epic/planning-artifacts/decomposition/story-ft-5-run-a-pomodoro.md
+  s_ac8e49c01696b1::t_3d6fa926d363be 1-66
+_bmad-output/epic/planning-artifacts/decomposition/story-ft-7-breaks-and-cycle.md
+  s_ac8e49c01696b1::t_3d6fa926d363be 1-76
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "32de6291b664a48edce584f288b50934074cbc00",
+  "prompts": {},
+  "sessions": {
+    "s_ac8e49c01696b1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6fcdf4ec-c327-4945-91ee-4fd2f002dc27",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Denis <denis.kolkovskiy@cyber-sun.com>"
+    }
+  }
+}
