@@ -29,3 +29,18 @@ Lost-update guard: FT-1 re-fetched immediately before writing; description uncha
 - Write-back the brief: not applied (risk accepted; the PRD supersedes it).
 
 Verdict: Pass.
+
+## 2026-09-24 — FT-1 drift resolutions (gate for vention-decomposition-flow, Epic FT-1)
+
+Scope: FT-1 (ticket) as anchor; artifact surfaces: the PRD (`prd-ft-1/prd.md`), the epic architecture (`architecture/pomodoro-tracker-architecture.md`, new since the previous run), the brief (`briefs/brief-forge-sandbox-2026-09-24/brief.md`). FT-2 and FT-3 are process tickets without product requirements. Brief↔PRD drifts were settled in the previous entry and are not re-raised. Resolution mode: user chose "accept the recommendation on every drift".
+
+- Second browser vs same-browser tabs for the running Interval (PRD §7 One live instance) — medium — kept the architecture.
+  Confirmed: "A second open tab of the same browser shows the same state; another browser shows the same Pomodoro Records but not a Running or Paused Interval; only the instance that started the Interval issues Alerts" (architecture ADR4, :86, :20, :90). Affected statements: the PRD — :334 (§7 One live instance, diverging), :198 (FR-12 reference to §7), :431 (§12).
+  Write-back: pending.
+- Task-name uniqueness ignores letter case (PRD FR-7) — low — kept the architecture.
+  Confirmed: "a name equal to an existing Open Task's name, ignoring letter case, is rejected" (architecture ADR3, :72 — partial unique index on lower(name) among Open Tasks). Affected statements: the PRD — :158 (FR-7, diverging), :171 (FR-9 same rules), :415 (§12).
+  Write-back: pending.
+
+- Write-back the PRD (`prd-ft-1/prd.md`): 3 edits across 2 drifts applied 2026-09-24 — §7 One live instance (same-browser tabs; another browser sees records only), FR-7 and §12 (uniqueness ignoring letter case). Status: written.
+
+Verdict: Pass.

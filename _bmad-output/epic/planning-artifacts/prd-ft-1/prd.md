@@ -155,7 +155,7 @@ The displayed remaining time is derived from the Interval's start time and the c
 #### FR-7: Create a Task
 The user can create a Task by entering a name.
 **Consequences (testable):**
-- A Task name is required and is trimmed. At most 100 characters, and a name equal to an existing Open Task's name is rejected.
+- A Task name is required and is trimmed. At most 100 characters, and a name equal to an existing Open Task's name, ignoring letter case, is rejected.
 - A new Task is Open, has a Tree with zero Growth Steps, and can be selected as the Current Task immediately.
 
 #### FR-8: Select the Current Task
@@ -331,7 +331,7 @@ Settings are stored on the server and apply in any browser on the machine.
 
 - **Shape.** A browser single-page app backed by a small REST API with persistent storage, as FT-1 states. The stack is decided in architecture; the brief's preference is recorded in `addendum.md`.
 - **Single user, no authentication.** The app runs on the author's machine or on a host reachable only by the author. The server is not exposed to the public internet; if it ever is, authentication becomes a prerequisite and this PRD must be updated.
-- **One live instance.** A second open tab or browser shows the same state, but only the instance that started the Interval issues Alerts; controlling the timer from two instances at once is not supported.
+- **One live instance.** A second open tab of the same browser shows the same state, but only the instance that started the Interval issues Alerts; controlling the timer from two instances at once is not supported. Another browser shows the same Pomodoro Records (FR-16) but not a Running or Paused Interval.
 - **Data ownership.** All data stays on infrastructure the author controls; there is no cloud dependency at runtime.
 - **Cost.** Zero recurring cost beyond the author's own machine.
 - **Learning-project scope.** Features are shaped to decompose into a handful of independent Stories; scope growth that adds dependencies between Stories should be resisted.
@@ -412,7 +412,7 @@ None. The draft raised two, and the author decided both on 2026-09-24:
 - §4.1 FR-4 — Interrupted Pomodoros do not advance the Cycle; the Cycle resets each Day.
 - §4.1 FR-6 — remaining time is accurate to 1 second.
 - §4.1 FR-6 — a Pomodoro that ran out while the app was closed counts as Completed (answers a brief question).
-- §4.2 FR-7 — Task names are at most 100 characters and unique among Open Tasks.
+- §4.2 FR-7 — Task names are at most 100 characters and unique among Open Tasks, ignoring letter case.
 - §4.2 FR-9 — renaming is added beyond the brief because Tasks cannot be deleted.
 - §4.3 FR-12 — 2 seconds is the latency bound for all Alert channels.
 - §4.3 FR-13 — permission handling is derived from "cannot miss its end".

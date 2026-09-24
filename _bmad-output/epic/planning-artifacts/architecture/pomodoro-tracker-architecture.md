@@ -139,11 +139,11 @@ The client has two kinds of state: the timer machine (owned locally, persisted t
 
 ### Decision
 
-**Zustand for the timer machine, TanStack Query for server resources, no router.** The timer store is a vanilla Zustand store, driven from the worker message handler and from clicks outside React, with the `persist` middleware to `localStorage` and a `BroadcastChannel` listener for same-browser tab sync (ADR4). TanStack Query owns fetching, cache invalidation after mutations, retry and refetch on window focus for Tasks, Pomodoro Records and Settings. Navigation is a `view` value (Main, Day, Week, Garden, Settings) held in state or `location.hash`; no router library. Styling is plain CSS modules with no UI framework.
+**Zustand for the timer machine, TanStack Query for server resources, no router.** The timer store is a vanilla Zustand store, driven from the worker message handler and from clicks outside React, with the `persist` middleware to `localStorage` and a `BroadcastChannel` listener for same-browser tab sync (ADR4). TanStack Query owns fetching, cache invalidation after mutations, retry and refetch on window focus for Tasks, Pomodoro Records and Settings. Navigation is a `view` value (Main, Day, Week, Garden, Settings) held in state or `location.hash`; no router library. Styling is Tailwind CSS (build-time, via the Vite plugin) in `apps/web`, and screens are assembled from Tailkit's free React + Tailwind components, copied into `apps/web` as owned source rather than installed as a runtime package. No other UI framework or component library. Amended 2026-09-24 at decomposition (author decision), replacing plain CSS modules.
 
 ### Rationale
 
-Two small, well-known libraries replace exactly the code that hides bugs: cache invalidation and retry. A store that lives outside React is the natural home for a state machine driven by worker messages and storage events. Five sibling views do not justify a router.
+Two small, well-known libraries replace exactly the code that hides bugs: cache invalidation and retry. A store that lives outside React is the natural home for a state machine driven by worker messages and storage events. Five sibling views do not justify a router. Tailwind with copied Tailkit components gives ready-made, consistent layouts for the five views and their controls (buttons, toggles, lists, empty states) at build-time cost only: no runtime third-party calls (PRD §6 Privacy) and no recurring cost (PRD §7).
 
 ## ADR9: Test infrastructure
 
