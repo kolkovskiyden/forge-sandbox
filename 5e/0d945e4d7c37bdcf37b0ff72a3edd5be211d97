@@ -1,0 +1,77 @@
+.gitignore
+  s_69bca5ea58597f::t_a2fd25feb046cc 1-45
+.vsdlc/workspace.toml
+  s_69bca5ea58597f::t_f6aaf8791f34df 1-31
+.worktreeinclude
+  s_69bca5ea58597f::t_8f636c4a3a8449 1-35
+AGENTS.md
+  s_69bca5ea58597f::t_9325cf4ff2b9a7 1-58
+CLAUDE.md
+  s_69bca5ea58597f::t_6b2441eb25fca9 1-58
+FORGE-SANDBOX-BRIEF.md
+  s_69bca5ea58597f::t_9907aa8bf1b44e 1-125
+README.md
+  s_69bca5ea58597f::t_30d508fd09fb0e 1-57
+_bmad/custom/.gitignore
+  s_69bca5ea58597f::t_9304dbd94c6a4f 1
+_bmad/custom/_shared/architecture-spine-authority.md
+  s_69bca5ea58597f::t_2a44c78088d0e2 1-8
+_bmad/custom/_shared/story-size-rubric.md
+  s_69bca5ea58597f::t_7c5761256f4608 1-78
+_bmad/custom/bmad-agent-architect.toml
+  s_69bca5ea58597f::t_0c96fdaa1b9762 1-14
+_bmad/custom/bmad-agent-dev.toml
+  s_69bca5ea58597f::t_8bc62fb6b84775 1-25
+_bmad/custom/bmad-agent-pm.toml
+  s_69bca5ea58597f::t_8acd840621822f 1-28
+_bmad/custom/bmad-agent-ux-designer.toml
+  s_69bca5ea58597f::t_9f6135ba301074 1-23
+_bmad/custom/bmad-architecture.toml
+  s_69bca5ea58597f::t_4b6930425b404e 1-23
+_bmad/custom/bmad-check-implementation-readiness.toml
+  s_69bca5ea58597f::t_a33d20606178ff 1-7
+_bmad/custom/bmad-code-review.toml
+  s_69bca5ea58597f::t_09647f1934ad5e 1-34
+_bmad/custom/bmad-correct-course.toml
+  s_69bca5ea58597f::t_36f117677e0902 1-54
+_bmad/custom/bmad-create-epics-and-stories.toml
+  s_69bca5ea58597f::t_13a4674ea4411d 1-15
+_bmad/custom/bmad-create-story.toml
+  s_69bca5ea58597f::t_47a57bbdf455dd 1-11
+_bmad/custom/bmad-dev-auto.toml
+  s_69bca5ea58597f::t_39a782d73e4f8e 1-47
+_bmad/custom/bmad-dev-story.toml
+  s_69bca5ea58597f::t_69b986688dcb29 1-28
+_bmad/custom/bmad-prd.toml
+  s_69bca5ea58597f::t_9dec82d4657820 1-28
+_bmad/custom/bmad-product-brief.toml
+  s_69bca5ea58597f::t_e83cccf7b29617 1-7
+_bmad/custom/bmad-quick-dev.toml
+  s_69bca5ea58597f::t_c4d709d16d2670 1-66
+_bmad/custom/bmad-tea.toml
+  s_69bca5ea58597f::t_b1305be5363a7d 1-13
+_bmad/custom/config.example.toml
+  s_69bca5ea58597f::t_a16a55e9dfef04 1-11
+_bmad/custom/config.toml
+  s_69bca5ea58597f::t_7b7a6b80bcd503 1-7
+_bmad/custom/config.user.example.toml
+  s_69bca5ea58597f::t_218a193e4035bf 1-9
+codegraph.json
+  s_69bca5ea58597f::t_7e35bf17ea67ab 1-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "5e0d945e4d7c37bdcf37b0ff72a3edd5be211d97",
+  "prompts": {},
+  "sessions": {
+    "s_69bca5ea58597f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "s_69bca5ea58597f",
+        "model": "unknown"
+      },
+      "human_author": "Denis <denis.kolkovskiy@cyber-sun.com>"
+    }
+  }
+}
