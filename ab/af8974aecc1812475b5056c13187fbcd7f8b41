@@ -1,0 +1,19 @@
+_bmad-output/epic/epic-ft-1-pomodoro-tracker.json
+  s_b150cadb084e43::t_6cbffb8cb55847 99-149
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "abaf8974aecc1812475b5056c13187fbcd7f8b41",
+  "prompts": {},
+  "sessions": {
+    "s_b150cadb084e43": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fdfc87db-75fb-4c0f-bec7-2ccf4e1e6d80",
+        "model": "unknown"
+      },
+      "human_author": "Denis <denis.kolkovskiy@cyber-sun.com>"
+    }
+  }
+}
