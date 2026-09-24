@@ -55,3 +55,19 @@ be preserved byte-for-byte across upgrades.
 
 > Run `vsdlc install` to refresh this block. Do not edit between the markers.
 <!-- VENTION-SDLC-MANAGED:END -->
+
+## Pomodoro tracker
+
+A single-user Pomodoro web app (Jira epic FT-1). It has no login and runs only on your own machine.
+
+Requires Node 22.13 or newer (`mise install` provides it).
+
+```bash
+npm install
+npm run build
+npm start        # http://localhost:3000, reachable from this machine only
+```
+
+- `npm run dev` runs the API on port 3000 and the Vite dev server on http://localhost:5173, which proxies `/api` to the API.
+- `npm test` runs the Vitest suite.
+- `PORT` and `DB_PATH` override the port and the SQLite file. The file defaults to `./data/pomodoro.sqlite`, and `data/` is gitignored.

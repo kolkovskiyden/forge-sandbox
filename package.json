@@ -1,0 +1,30 @@
+{
+  "name": "pomodoro-tracker",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/shared",
+    "apps/server",
+    "apps/web"
+  ],
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "dev": "npm run build -w @pomodoro/shared && concurrently -k -n shared,server,web -c blue,green,magenta \"npm:dev:shared\" \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:shared": "npm run dev -w @pomodoro/shared",
+    "dev:server": "tsx watch --disable-warning=ExperimentalWarning apps/server/src/main.ts",
+    "dev:web": "npm run dev -w @pomodoro/web",
+    "build": "npm run build -w @pomodoro/shared && npm run build -w @pomodoro/server && npm run build -w @pomodoro/web",
+    "start": "node --disable-warning=ExperimentalWarning apps/server/dist/main.js",
+    "test": "npm run typecheck && vitest run",
+    "typecheck": "tsc -p packages/shared/tsconfig.test.json && tsc -p apps/server/tsconfig.test.json && tsc -p apps/web/tsconfig.test.json && tsc -p apps/web/tsconfig.node.json"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.4",
+    "concurrently": "^10.0.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
+  }
+}

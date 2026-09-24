@@ -46,3 +46,8 @@
 
 # Local Claude app outputs (not part of the repo)
 /Claude outputs/
+
+# App build output and local data
+node_modules/
+dist/
+/data/
