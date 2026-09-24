@@ -10,7 +10,7 @@
     "requirements": "not_started",
     "design": "not_started",
     "architecture": "completed",
-    "planning": "in_progress"
+    "planning": "completed"
   },
   "knownArtifacts": [
     {
@@ -27,6 +27,45 @@
     },
     {
       "path": "_bmad-output/epic/planning-artifacts/briefs/brief-forge-sandbox-2026-09-24/brief.md"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/decomposition/index.md"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/decomposition/story-ft-10-task-trees.md"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/decomposition/story-ft-11-today-and-day-view.md"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/decomposition/story-ft-12-week-view.md"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/decomposition/story-ft-13-done-tasks-and-garden.md"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/decomposition/story-ft-14-settings.md"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/decomposition/story-ft-4-task-picker.md"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/decomposition/story-ft-5-run-a-pomodoro.md"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/decomposition/story-ft-6-offline-safe-records.md"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/decomposition/story-ft-7-breaks-and-cycle.md"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/decomposition/story-ft-8-interval-end-alerts.md"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/decomposition/story-ft-9-while-you-were-away.md"
+    },
+    {
+      "path": "_bmad-output/epic/planning-artifacts/decomposition/validation-report.md"
     },
     {
       "path": "_bmad-output/epic/planning-artifacts/ft-1-drift-resolutions.md"
