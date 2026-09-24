@@ -1,0 +1,62 @@
+"_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/Checklists/Common/App Shell and Platform.md"
+  s_b150cadb084e43::t_ec1365377de05e 1-24
+"_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/Checklists/Task Picker and Current Task.md"
+  s_b150cadb084e43::t_ec1365377de05e 1-26
+  s_b150cadb084e43::t_e17aadc3906261 27-29
+_bmad-output/story/test-artifacts/test-generation-progress.md
+  s_b150cadb084e43::t_282059706920e5 57-58
+  s_b150cadb084e43::t_8a45db83ab148e 1-7
+  s_b150cadb084e43::t_e17aadc3906261 33-39
+  s_b150cadb084e43::t_43b50afaa71225 8-25
+  s_b150cadb084e43::t_f47af04eb0d881 26-32
+  s_b150cadb084e43::t_fd8951baf084e1 40-46
+  s_b150cadb084e43::t_e33aeecb5fa6b4 47-56
+_bmad-output/story/test-artifacts/test-generation-validation-report.md
+  s_b150cadb084e43::t_3622f01db179a9 1-25
+"_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/Checklists/Rename Task.md"
+  s_b150cadb084e43::t_ec1365377de05e 1-22
+  s_b150cadb084e43::t_77d43fe59d2996 23
+"_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/E2E Scenarios/First Session Journey.md"
+  s_b150cadb084e43::t_77d43fe59d2996 14-19
+  s_b150cadb084e43::t_fd8951baf084e1 1-13,20-22
+_bmad-output/story/story-ft-4-create-rename-pick-tasks.json
+  s_b150cadb084e43::t_c89ac4af71c2ab 12
+  s_b150cadb084e43::t_4b28e0aa288e0d 108-149
+"_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/Checklists/Create Task.md"
+  s_b150cadb084e43::t_ec1365377de05e 1-31
+"_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/E2E Scenarios/Task Picker and Current Task.md"
+  s_b150cadb084e43::t_fd8951baf084e1 1-13,18-20
+  s_b150cadb084e43::t_77d43fe59d2996 14-17
+"_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/Test Cases/Common/App Shell and Platform.md"
+  s_b150cadb084e43::t_77d43fe59d2996 37
+  s_b150cadb084e43::t_8ad2ee506e3a1a 1-36,38-81
+"_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/E2E Scenarios/Create Task.md"
+  s_b150cadb084e43::t_fd8951baf084e1 1-12,16-18
+  s_b150cadb084e43::t_77d43fe59d2996 13-15
+"_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/Test Cases/Task Picker and Current Task.md"
+  s_b150cadb084e43::t_8ad2ee506e3a1a 1-109
+"_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/Test Cases/Rename Task.md"
+  s_b150cadb084e43::t_8ad2ee506e3a1a 1-46,48-51,54-87
+  s_b150cadb084e43::t_80b6901c766246 47,52-53
+"_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/Test Cases/Create Task.md"
+  s_b150cadb084e43::t_8ad2ee506e3a1a 1-110
+"_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/prd-coverage-matrix.md"
+  s_b150cadb084e43::t_77d43fe59d2996 3
+  s_b150cadb084e43::t_e33aeecb5fa6b4 1-2,4-40
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "a6a47b8a74e11c3d6d7ffd1b75ee0f07956cae0e",
+  "prompts": {},
+  "sessions": {
+    "s_b150cadb084e43": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fdfc87db-75fb-4c0f-bec7-2ccf4e1e6d80",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Denis <denis.kolkovskiy@cyber-sun.com>"
+    }
+  }
+}
