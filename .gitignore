@@ -43,3 +43,6 @@
 *.tmp
 *.bak
 # VENTION-SDLC-MANAGED:END
+
+# Local Claude app outputs (not part of the repo)
+/Claude outputs/
