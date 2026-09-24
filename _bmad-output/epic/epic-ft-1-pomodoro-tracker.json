@@ -96,6 +96,57 @@
     },
     {
       "path": "_bmad-output/epic/planning-artifacts/prd-ft-1/review-rubric.md"
+    },
+    {
+      "path": "_bmad-output/story/implementation-artifacts/deferred-work.md"
+    },
+    {
+      "path": "_bmad-output/story/implementation-artifacts/spec-ft-4-create-rename-pick-tasks.md"
+    },
+    {
+      "path": "_bmad-output/story/story-ft-4-create-rename-pick-tasks.json"
+    },
+    {
+      "path": "_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/Checklists/Common/App Shell and Platform.md"
+    },
+    {
+      "path": "_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/Checklists/Create Task.md"
+    },
+    {
+      "path": "_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/Checklists/Rename Task.md"
+    },
+    {
+      "path": "_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/Checklists/Task Picker and Current Task.md"
+    },
+    {
+      "path": "_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/E2E Scenarios/Create Task.md"
+    },
+    {
+      "path": "_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/E2E Scenarios/First Session Journey.md"
+    },
+    {
+      "path": "_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/E2E Scenarios/Task Picker and Current Task.md"
+    },
+    {
+      "path": "_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/Test Cases/Common/App Shell and Platform.md"
+    },
+    {
+      "path": "_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/Test Cases/Create Task.md"
+    },
+    {
+      "path": "_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/Test Cases/Rename Task.md"
+    },
+    {
+      "path": "_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/Feature/Test Cases/Task Picker and Current Task.md"
+    },
+    {
+      "path": "_bmad-output/story/test-artifacts/Pomodoro tracker - Create, rename and pick Tasks (FT-4)/prd-coverage-matrix.md"
+    },
+    {
+      "path": "_bmad-output/story/test-artifacts/test-generation-progress.md"
+    },
+    {
+      "path": "_bmad-output/story/test-artifacts/test-generation-validation-report.md"
     }
   ]
 }
